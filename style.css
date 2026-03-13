@@ -1,0 +1,383 @@
+/* -------- GENERAL STYLES -------- */
+*{
+    margin: 0;
+    padding: 0;
+    scroll-padding-top: 4rem;
+} 
+
+:root{
+    --bg-color:#737070;
+    --font-color:#fff;
+    --secondary-bg-color:#7220b5;
+    --font: "Poppins";
+}
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font);
+    color: var(--font-color);
+    height: 100vh;
+    max-width: 100vw;
+}
+.container {
+    padding: 0rem 12rem;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* ------- HEADER -------- */
+.navbar {
+    padding: 0 12rem;
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.header__info ul li {
+    padding: 2.5rem 1.2rem 1rem 1.2rem;
+    cursor: pointer;
+}
+
+.hireMe__button a {
+    background-color: var(--secondary-bg-color);
+    color: var(--font-color);
+    font-family: var(--font);
+    font-size: small;
+    padding: 1rem 1.5rem;
+    border-color: unset;
+    border-width: 0;
+}
+.header__info ul li {
+    transition: 0.3s;
+}
+.header__info ul li:hover {
+    background-color: var(--secondary-bg-color);
+}
+
+
+ /**Responsive design navbar**/
+
+ @media screen and (max-width: 1200px) {
+    .navbar {
+        padding: 0 2rem;
+    }
+    .navbar .checkbox {
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 32px;
+        top: 2rem;
+        right: 2rem;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .navbar .art__lines{
+        display: block;
+        height: 26px;
+        width: 32px;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navbar .art__lines .line {
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background: #ffffff;
+    }
+    .navbar .art__lines .line1 {
+        transform-origin: 0% 0%;
+        transition: transform 0.4s ease-in-out;
+    }
+    .navbar .art__lines .line2 {
+        transition: transform 0.2s ease-in-out;
+    }
+    .navbar .art__lines .line3 {
+        transform-origin: 0% 100%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .header__info ul li {
+        padding: 0;
+        margin: 2rem 0;
+        cursor: pointer;
+        font-size: x-large;
+    }
+
+    .header__info ul li:hover {
+        background-color: unset;
+    }
+
+    .header__info {
+        padding-top: 120px;
+        height: 100vh;
+        background: var(--secondary-bg-color);
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: auto;
+        transform: translate(150%);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .navbar input[type="checkbox"]:checked ~ .header__info {
+        transform: translateX(0);
+    }
+
+    .navbar input[type="checkbox"]:checked ~ .art__lines .line1 {
+        transform: rotate(45deg);
+    }   
+
+    .navbar input[type="checkbox"]:checked ~ .art__lines .line2 {
+        transform: scaleY(0);
+    }
+
+    .navbar input[type="checkbox"]:checked ~ .art__lines .line3 {
+        transform: rotate(-45deg);
+    }   
+}   
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .navbar{
+        padding: 0 12rem;
+    }
+    .navbar .checkbox, .navbar .art__lines {
+        right: 12rem;
+    }
+}
+
+
+/* ------- HOME -------- */
+
+.right__content img {
+    height: 100%;
+    width: 100%;
+}  
+.home__page {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+ .hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:120px 10%;
+    gap:120px;
+    min-height:100vh;
+}
+
+.hero-left{
+    width:50%;
+    
+    
+}
+
+.hero-right{
+    width:50%;
+    color:white;
+    text-align:left;
+}
+.hero-right h1{
+    font-size:70px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.hero-right p{
+    font-size:18px;
+    opacity:0.8;
+    max-width:500px;
+}
+
+.hero-right img{
+    width: 120px;
+    border-radius:50%;
+    margin-top:20px;
+}
+
+
+/* ------- ABOUT ME -------- */
+/* ===== LATA 3D CV ===== */
+
+.can-scene{
+    perspective:1000px;
+
+    display:flex;
+    justify-content:flex-start;   /* ya NO se centra */
+    align-items:flex-start;
+
+    margin-top:120px;
+    margin-left:60px;
+
+
+}/* posición dentro de ABOUT */
+
+
+
+/* CUERPO DE LA LATA */
+
+.can {
+    width:120px;
+    height:360px;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    animation:spin 20s linear infinite;
+}
+
+
+/* CARAS */
+
+.can-face {
+    position:absolute;
+    width:120px;
+    height:340px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+    box-sizing:border-box;
+
+    color:white;
+    font-family:sans-serif;
+    text-align:center;
+
+    backface-visibility:hidden;
+    overflow: hidden;
+    
+     
+     
+
+
+    /* diseño lata */
+
+    background: 
+    linear-gradient(
+        90deg,
+        #5b2bd6,
+        #7e3af2,
+        #c084fc,
+        #7e3af2,
+        #5b2bd6
+    ), 
+    url("https://www.transparenttextures.com/patterns/flowers.png");
+
+    background-blend-mode:overlay;
+
+    border-radius:6px;
+
+}
+
+
+/* TEXTO */
+
+    .can-face h2 {
+        font-size:22px;
+    }
+    .can-face h3 {
+        font-size:18px;
+        
+    }
+.can-face h2,
+.can-face h3{
+writing-mode: vertical-rl;
+text-orientation: mixed;
+}
+    .can-face p {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing:2px;
+
+    
+    
+}
+
+
+/* POSICIÓN DE LAS 12 CARAS */
+
+.face1  { transform: rotateY(0deg) translateZ(224px); }
+.face2  { transform: rotateY(30deg) translateZ(224px); }
+.face3  { transform: rotateY(60deg) translateZ(224px); }
+.face4  { transform: rotateY(90deg) translateZ(224px); }
+.face5  { transform: rotateY(120deg) translateZ(224px); }
+.face6  { transform: rotateY(150deg) translateZ(224px); }
+.face7  { transform: rotateY(180deg) translateZ(224px); }
+.face8  { transform: rotateY(210deg) translateZ(224px); }
+.face9  { transform: rotateY(240deg) translateZ(224px); }
+.face10 { transform: rotateY(270deg) translateZ(224px); }
+.face11 { transform: rotateY(300deg) translateZ(224px); }
+.face12 { transform: rotateY(330deg) translateZ(224px); }
+
+/* TAPA */
+
+ 
+
+/* BASE */
+ 
+ 
+
+
+/* ANIMACIÓN */
+
+@keyframes spin {
+
+    from{
+        transform:rotateY(0deg);
+    }
+
+    to{
+        transform:rotateY(360deg);
+    }
+
+}
+@media (max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-left,
+.hero-right{
+width:100%;
+}
+
+.hero-right h1{
+font-size:40px;
+}
+
+}
+
+
+/* ------- SERVICES -------- */
+
+/* ------- PORTFOLIO -------- */
+
+/* ------- FREE LANCER -------- */
+
+/* ------- FOOTER -------- */
